@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import ToolMessage
 import json
-
+import os
 load_dotenv()
 
 SERVERS = { 
@@ -17,6 +17,13 @@ SERVERS = {
             "run",
             "/usr/local/src/myWork/AGENTIC_AI_STUDY/deploy-mcp-on-remote-server/main.py"
         ]
+    },
+    "expenseTrackerMcpServer":{
+        "transport":"streamable_http",
+        "url":"https://navsingh3211-expense-tracker.fastmcp.app/mcp",
+        "headers": {
+            "Authorization": f"Bearer {os.getenv('FASTMCP_AUTH_TOKEN')}"
+        }
     }
 }
 
@@ -35,7 +42,7 @@ async def main():
     llm = ChatOpenAI(model="gpt-5")
     llm_with_tools = llm.bind_tools(tools)
 
-    prompt = "add number 11 and 33"
+    prompt = "Add expense - Rs 800 for movie ramayna on 4th nov"
     response = await llm_with_tools.ainvoke(prompt)
 
     if not getattr(response, "tool_calls", None):
