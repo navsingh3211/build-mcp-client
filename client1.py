@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 SERVERS = { 
-    "SimpleCalculatorServer":{
+    "SimpleCalculatorServer":{ # local mcp
         "transport":"stdio",
         "command":"/home/navsingh3211/anaconda3/bin/uv",
         "args":[
@@ -18,7 +18,7 @@ SERVERS = {
             "/usr/local/src/myWork/AGENTIC_AI_STUDY/deploy-mcp-on-remote-server/main.py"
         ]
     },
-    "expenseTrackerMcpServer":{
+    "expenseTrackerMcpServer":{ #remote deployed mcp 
         "transport":"streamable_http",
         "url":"https://navsingh3211-expense-tracker.fastmcp.app/mcp",
         "headers": {
