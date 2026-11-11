@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "fastmcp>=3.4.11",
     "langchain>=1.4.9",
     "langchain-core>=1.7.6",
     "langchain-mcp-adapters>=0.3.2",

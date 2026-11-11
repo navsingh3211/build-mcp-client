@@ -8,10 +8,10 @@ Activate-->	source .venv/bin/activate
 pip install -r requirements.txt
 
 # test mcp server
-uv run fastmcp dev inspector main.py 
+uv run fastmcp dev inspector client1.py 
 
 # Run mcp server
-uv run main.py
+uv run client1.py
 
 <!-- # How to add server to claud desktop
 uv run fastmcp install claude-desktop main.py -->
